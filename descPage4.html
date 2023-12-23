@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<title> | Template | </title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="responsive.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("nav").accessibleDropDown();
+	
+	$('nav ul li a').hover(
+		function(){
+			$(this).stop().animate(
+			{
+				paddingRight: '2.5em'
+			}, 1000);
+		},
+		function(){
+			$(this).stop().animate(
+			{
+				paddingRight: '1.2em'
+			}, 1000);
+	});
+}); // end ready
+$.fn.accessibleDropDown = function() {
+	var el = $(this);
+	$("a", el).focus(function() {
+		$(this).parents("li").addClass("hover");
+	}).blur(function() {
+		$(this).parents("li").removeClass("hover");
+	});
+}
+</script>
+</head>
+<body>
+<div id="wrapper">
+  <header>
+    <h1>Chaotic Weather</h1>
+     <nav>
+      <label for="show-menu" class="show-menu">Show Menu</label>
+      <input type="checkbox" id="show-menu" role="button">
+      <ul id="menu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="descPage1.html">About</a></li>
+        <li><a href="descPage2.html">Games</a>
+          <ul>
+            <li><a href="#">SkullRun</a></li>
+            <li><a href="#">Ninjas</a></li>
+            <li><a href="#">Noteleks</a></li>
+          </ul>
+        </li>
+        <li><a href="descPage3.html">Services</a>
+          <ul>
+            <li><a href="#">Streaming</a></li>
+            <li><a href="#">Games</a></li>
+            <li><a href="#">Lessons</a></li>
+            <li><a href="#">Reviews</a></li>
+          </ul>
+        </li>
+        <li><a href="descPage4.html">Information</a>
+          <ul>
+            <li><a href="#">Sub-Topic 1</a></li>
+            <li><a href="#">Sub-Topic 2</a></li>
+            <li><a href="#">Sub-Topic 3</a></li>
+          </ul>
+        </li>
+        <li><a href="descPage5.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <aside>
+    <p>The side bar content</p>
+    <p>The side bar content</p>
+    <p>The side bar content</p>
+    <p>The side bar content</p>
+    <p>The side bar content</p>
+    <p>The side bar content</p>
+    <p>The side bar content</p>
+  </aside>
+  <section>
+    <article>
+      <h2>Information</h2>
+      <p>All About the Stream</p>
+      <p><img class="smImg" src="images/pexels-lucie-liz-3248143.jpg"> Purus faucibus ornare suspendisse sed nisi lacus sed. Quis hendrerit dolor magna eget est. Nullam non nisi est sit. Praesent semper feugiat nibh sed. Velit euismod in pellentesque massa placerat duis. Gravida in fermentum et sollicitudin ac orci phasellus. Enim eu turpis egestas pretium aenean pharetra. Fermentum dui faucibus in ornare quam viverra. Ac odio tempor orci dapibus ultrices. Id semper risus in hendrerit gravida rutrum quisque non tellus. Lacinia quis vel eros donec ac. Porttitor rhoncus dolor purus non enim praesent elementum facilisis leo. Facilisis magna etiam tempor orci eu. </p>
+      <p>Faucibus ornare suspendisse sed nisi. Mauris ultrices eros in cursus turpis. Ornare quam viverra orci sagittis eu volutpat odio. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra. Mauris in aliquam sem fringilla ut morbi. In hendrerit gravida rutrum quisque. Ut ornare lectus sit amet est placerat in. Eu consequat ac felis donec et odio pellentesque diam. Etiam tempor orci eu lobortis. Lacus vel facilisis volutpat est velit egestas dui. Id porta nibh venenatis cras sed felis eget velit aliquet. Neque laoreet suspendisse interdum consectetur. </p>
+    </article>
+    <p class="spec"></p>
+    <article class="cols">
+      <h2 class="cols-span">Praesent semper feugiat nibh sed</h2>
+      <p class="lead cols-span">Lacus vel facilisis volutpat est velit egestas dui.</p>
+      <p>Tincidunt augue interdum velit euismod in pellentesque massa placerat duis. Eu volutpat odio facilisis mauris sit amet massa vitae. Egestas purus viverra accumsan in nisl nisi. Venenatis cras sed felis eget velit aliquet sagittis id consectetur. Aliquet lectus proin nibh nisl. Fringilla ut morbi tincidunt augue. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Elementum tempus egestas sed sed risus pretium quam. Netus et malesuada fames ac turpis egestas maecenas pharetra. Nulla at volutpat diam ut venenatis tellus in metus. Diam sit amet nisl suscipit adipiscing bibendum est ultricies. Egestas fringilla phasellus faucibus scelerisque eleifend donec. Aliquam sem et tortor consequat id porta. Et magnis dis parturient montes nascetur ridiculus. Diam quam nulla porttitor massa id neque aliquam vestibulum. Viverra justo nec ultrices dui. Imperdiet nulla malesuada pellentesque elit eget gravida cum sociis natoque. Pulvinar neque laoreet suspendisse interdum consectetur. Tincidunt dui ut ornare lectus sit. Placerat orci nulla pellentesque dignissim. </p>
+    </article>
+  </section>
+  <footer>
+    <p>Copyright 2022 All Rights Reserved</p>
+  </footer>
+</div>
+</body>
+</html>

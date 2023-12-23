@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<title> | Template | </title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="responsive.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("nav").accessibleDropDown();
+	
+	$('nav ul li a').hover(
+		function(){
+			$(this).stop().animate(
+			{
+				paddingRight: '2.5em'
+			}, 1000);
+		},
+		function(){
+			$(this).stop().animate(
+			{
+				paddingRight: '1.2em'
+			}, 1000);
+	});
+}); // end ready
+$.fn.accessibleDropDown = function() {
+	var el = $(this);
+	$("a", el).focus(function() {
+		$(this).parents("li").addClass("hover");
+	}).blur(function() {
+		$(this).parents("li").removeClass("hover");
+	});
+	}
+	function validForm(){// reference point /* first name, email, comments and phone */
+	var fname = document.form1.fname;var email = document.form1.email;var emailRegex =/^([A-Z0-9._%+-]+)\@([A-Z0-9.-]+)\.([A-Z]{2,4})$/i;var comments = document.form1.comments;var phone1 = document.form1.phone1;var phone2 = document.form1.phone2;var phone3 = document.form1.phone3;/* collection the errorspans for later use */var fnErr = document.getElementById("fnErr");var lnErr=document.getElementById("lnErr");var emErr = document.getElementById("emErr");var phErr = document.getElementById("phErr");var cmErr = document.getElementById("cmErr");// reference point
+	
+	if (fname.value == ""){
+		fnErr.innerHTML = "We need your name please.";
+		fname.focus();
+		return false;
+	} else {
+		fnErr.innerHTML = "";
+	}
+	if (email.value == ""){
+		emErr.innerHTML = "We need an address please";
+		email.focus();
+		return false;
+	} else if (!emailRegex.test(email.value)){
+		emErr.innerHTML = "We need a valid address please"
+		email.focus;
+		return false;
+	} else {
+		emErr.innerHTML = "";
+	}
+	
+	if(isNaN(phone1.value) || isNaN(phone2.value) || isNaN(phone3.value)){
+		phErr.innerHTML = "If you include a phone number it should be numbers only.";
+		phone1.select();
+		return false;
+	} else {
+		phErr.innerHTML = "";
+	} 
+	if (comments.value == ""){
+		cmErr.innerHTML = "Please include a comment or 'none' in the comment box.";
+		comments.focus();
+		return false;
+	} else {
+		cmErr.innerHTML = ""
+	}
+	var gtrType = document.getElementById('guitarType');
+	var gtErr = document.getElementById('gtErr');
+	var i = gtrType.selectedIndex;
+	var gtrValue = gtrType.options[i].text;
+	if(gtrValue === "-- Please Select --") {
+		gtErr.innerHTML = "Please choose a game type."
+		return false;
+	} else {
+		gtErr.innerHTML = "";
+	}
+	var interest = document.getElementById('interest');
+	var inErr = document.getElementById('inErr');
+	var si = interest.selectedIndex;
+	var inValue = interest.options[si].text;
+	if(inValue ==="-- Please Select --"){
+		inErr.innerHTML = "Please select your interests.";
+		return false;
+	} else {
+		inErr.innerHTML = "";
+	}
+	var notices = document.form1.notices;
+	var selected;
+	for(var i=0;i<notices.length;i++){
+		if(notices[i].checked){
+			selected = notices[i].value;
+		}
+	}
+	
+		/* set up a message for a advert recipient */
+	var msg = "Thank you, <b>" +fname.value
+		+"!</b> Your message has been received and one of our representatives will reply to <a href='"
+		+email.vaule+"'>"+email.value+"</a> within a day or two. Relax, and enjoy the rest of the site!";
+	if(selected != undefined){
+		document.getElementById('notePref').innerHTML = ""
+	if (selected == "yes") { // here's where we test the contents of "selected"
+		document.getElementById('fnlMsg').innerHTML = msg;
+	} else {
+		document.getElementById('fnlMsg').innerHTML = "<strong>" + fname.value+"</strong>, thank you for your feedback!";
+	}
+		var contactForm = document.getElementById('contactForm').setAttribute('class', 'hide');
+		var losesSep = document.getElementById('spec');
+		losesSep[0].setAttribute('class', 'hide');
+	} else {
+		document.getElementById('notePref').innerHTML = "Please make a selection:"
+	}
+}
+</script>
+	
+	<style type="text/css">
+/*form {
+    border: 1px solid brown;
+    max-width: 500px;
+}*/
+input {
+    margin-left: 20px;
+    width: 250px;
+    border-radius: 5px;
+}
+input[type="tel"] {
+    width: 48px;
+}
+input[type="radio"] {
+    width: 30px;
+}
+.shortmargin {
+    margin-left: 7px;
+}
+.adj {
+    margin-left: 20px;
+    width: 250px;
+    border-radius: 5px;
+    box-shadow: -1px 0 1px rgba(0,0,0,0.6);
+}
+input, textarea, select {
+    margin-top: 7px;
+    padding: 3px;
+}
+.err {
+    font-style: italic;
+    color: red;
+}
+.hide {
+    display: none;
+}
+</style>
+</head>
+<body>
+<div id="wrapper">
+  <header>
+    <h1>Chaotic Weather</h1>
+     <nav>
+      <label for="show-menu" class="show-menu">Show Menu</label>
+      <input type="checkbox" id="show-menu" role="button">
+      <ul id="menu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="descPage1.html">About</a></li>
+        <li><a href="descPage2.html">Games</a>
+          <ul>
+            <li><a href="#">SkullRun</a></li>
+            <li><a href="#">Ninjas</a></li>
+            <li><a href="#">Noteleks</a></li>
+          </ul>
+        </li>
+        <li><a href="descPage3.html">Services</a>
+          <ul>
+            <li><a href="#">Streaming</a></li>
+            <li><a href="#">Games</a></li>
+            <li><a href="#">Lessons</a></li>
+            <li><a href="#">Reviews</a></li>
+          </ul>
+        </li>
+        <li><a href="descPage4.html">Information</a>
+          <ul>
+            <li><a href="#">Sub-Topic 1</a></li>
+            <li><a href="#">Sub-Topic 2</a></li>
+            <li><a href="#">Sub-Topic 3</a></li>
+          </ul>
+        </li>
+        <li><a href="descPage5.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <aside>
+    <p>The side bar content</p>
+    <p>The side bar content</p>
+    <p>The side bar content</p>
+    <p>The side bar content</p>
+    <p>The side bar content</p>
+    <p>The side bar content</p>
+    <p>The side bar content</p>
+  </aside>
+  <section>
+    <article>
+      <h2>Contact</h2>
+      <p>How to talk to us</p>
+      <p><img class="smImg" src="images/pexels-soumil-kumar-735911.jpg"> Purus faucibus ornare suspendisse sed nisi lacus sed. Quis hendrerit dolor magna eget est. Nullam non nisi est sit. Praesent semper feugiat nibh sed. Velit euismod in pellentesque massa placerat duis. Gravida in fermentum et sollicitudin ac orci phasellus. Enim eu turpis egestas pretium aenean pharetra. Fermentum dui faucibus in ornare quam viverra. Ac odio tempor orci dapibus ultrices. Id semper risus in hendrerit gravida rutrum quisque non tellus. Lacinia quis vel eros donec ac. Porttitor rhoncus dolor purus non enim praesent elementum facilisis leo. Facilisis magna etiam tempor orci eu. </p>
+      <p>Faucibus ornare suspendisse sed nisi. Mauris ultrices eros in cursus turpis. Ornare quam viverra orci sagittis eu volutpat odio. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra. Mauris in aliquam sem fringilla ut morbi. In hendrerit gravida rutrum quisque. Ut ornare lectus sit amet est placerat in. Eu consequat ac felis donec et odio pellentesque diam. Etiam tempor orci eu lobortis. Lacus vel facilisis volutpat est velit egestas dui. Id porta nibh venenatis cras sed felis eget velit aliquet. Neque laoreet suspendisse interdum consectetur. </p>
+    </article>
+    <p class="spec"></p>
+    <article class="contactForm">
+		<h2>Contact Form</h2>
+      <p class="lead">Please fill the information below:</p>
+      <form method="post" action="" name="form1">
+        <p>First name: <br>
+          <input type="text" name="fname" placeholder="first name" <br>
+          <span class="err" id="fnErr"></span></p>
+        <p>Last name: <br>
+          <input type="text" name="lname" placeholder="last name" <br>
+          <span class="err" id="lnErr"></span> </p>
+        <p>Email: <br>
+          <input type="text" name="email" placeholder="you@youremail.com">
+          <br>
+          <span class="err" id="emErr"></span> </p>
+        <p>Phone: <br>
+          <input type="tel" name="phone1" placeholder="XXX" maxlength="3">
+          <input type="tel" name="phone2" placeholder="XXX" maxlength="3" class="shortmargin">
+          <input type="tel" name="phone3" placeholder="XXXX" maxlength="4" class="shortmargin">
+          <span class="err" id="phErr"></span> </p>
+        <p>Comments: <br>
+          <textarea name="comments" placeholder="Add your comments" class="adj"></textarea>
+          <br>
+          <span class="err" id="cmErr"></span> </p>
+        <p>Please tell me about your preferences: </p>
+        <p>I most often play: <br>
+          <span id="gtErr" class="err"></span>
+          <select id="guitarType" class="adj">
+            <option>-- Please Select --</option>
+            <option>First Person Shooters</option>
+            <option>Metroidvania</option>
+            <option>Twin Stick Shooter</option>
+            <option>Racing</option>
+            <option>Sports</option>
+          </select>
+        </p>
+        <p>I am interested in: <br>
+          <span id="inErr" class="err"></span>
+          <select id="interest" class="adj">
+            <option>-- Please Select --</option>
+            <option>Games</option>
+            <option>Streams</option>
+            <option>Public Address</option>
+			<option>Other</option>
+          </select>
+        </p>
+        <p>Would you like to recieve notifications via Email?</p>
+        <span class="err" id="notePref"></span>
+        <input type="radio" name="notices" value="yes">
+        : Yes!
+        <input type="radio" name="notices" value="maybe">
+        : Not yet.
+        <input type="radio" name="notices" value="no">
+        : No Thanks.
+        <p>
+          <input type="button" value="Send Information" onclick="validForm()">
+        </p>
+      </form>
+		<span id="fnlMsg"></span>
+    </article>
+  </section>
+  <footer>
+    <p>Copyright 2022 All Rights Reserved</p>
+  </footer>
+</div>
+</body>
+</html>

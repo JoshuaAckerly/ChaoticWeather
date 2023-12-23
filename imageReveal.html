@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery Image Hover</title>
+
+<style type="text/css">
+	body{
+		font: 100% "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif"
+	}
+	
+	.seperate {
+		line-height: 1.8em;
+		border-bottom: 1px solid black;
+	}
+	
+	.container1 {
+		position: relative;
+		max-width: 800px;
+		height: 500px;
+		border: 1px solid black;
+		overflow: hidden;
+		margin-left: 20px;
+	}
+	
+	.box1 {
+		position: absolute;
+		top: 40px;
+		left: 20px;
+		width: 700px;
+		height: auto;
+		padding: 5px;
+		text-align: center;
+	}
+	
+	.box2 {
+		position: absolute;
+		top: 40px;
+		left: 20px;
+		width: 700px;
+		height: auto;
+		padding: 5px;
+		text-align: center;
+	}
+	
+	.box1 img {
+		padding-top: 5px;
+		max-width: 100%;
+	}
+	
+	.box2 img {
+		padding-top: 5px;
+		max-width: 100%;
+	}
+</style>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+	
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.container1').hover(
+			function(){
+				$('.box1').stop().animate(
+					{left: '850'},
+					1000,
+					'easeInCubic'
+				);
+			},
+				function(){
+					$('.box1').stop().animate(
+						{left: '20'},
+						1000,
+						'easeOutBounce'
+					);
+				});
+	});
+</script>
+</head>
+
+<body>
+	<h2 class="seperate">Image Hover</h2>
+	
+	<div class="container1">
+		<div class="box2"><img src="../tutorial - Copy/images/guitar_ig.jpg"></div>
+		<div class="box1"><img src="../tutorial - Copy/images/guitar04.jpg"></div>
+	</div>
+</body>
+</html>

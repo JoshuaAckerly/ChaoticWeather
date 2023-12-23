@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<title> Chaotic Weather </title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="responsive.css" rel="stylesheet">
+<link href="css/theme-metallic.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+<script src="js/jquery.anythingslider.min.js"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script> 
+<script type="text/javascript">
+	
+	
+	
+$(document).ready(function() {
+	
+	
+	
+	
+	$("nav").accessibleDropDown();
+	
+	
+	$('#slider3').anythingSlider({
+		theme:'metallic',
+		expand: false,
+		resizeContents: true,
+		aspectRatio: true,
+		showMultiple: 1,
+		changeBy: 1,
+		startPanel: 1,
+		autoPlay: true
+	})
+	
+	.find('.panel')
+	
+	.find('div[class*=caption]').css(
+	{
+		position:'absolute'
+	})
+	
+	.end()
+	
+	
+	.hover(function() {
+		showCaptions( $(this));
+	},
+	function() {
+		hideCaptions( $(this));
+	}); // end slider
+	
+	
+	
+	
+	$('#dashboard').hover(
+		function() {
+			$(this).stop().animate(
+			{
+				left: '0',
+				backgroundColor: '#282A3A'
+			},
+			500,
+			'easeOutCubic'
+			); // end animate
+		},
+		function() {
+			$(this).stop().animate(
+			{
+				left: '-52px',
+				backgroundColor: '#735F32'
+			},
+			1500,
+			'easeOutBounce'
+			);
+		})
+	
+	
+	
+	$('#dashboard img').hover(
+		function(){
+			$(this).stop().animate(
+			{opacity: 1.0}, 500);
+		},
+		function(){
+			$(this).stop().animate(
+			{opacity: 0.4}, 500);
+		});
+	
+	$('nav ul li a').hover(
+		function(){
+			$(this).stop().animate(
+			{
+				paddingRight: '2.5em'
+			}, 1000);
+		},
+		function(){
+			$(this).stop().animate(
+			{
+				paddingRight: '1.2em'
+			}, 1000);
+	});
+	
+	
+	
+	showCaptions = function(el){
+		var $this = el;
+		if ($this.find('.caption-bottom').length) {
+			$this.find('.caption-bottom')
+			.show()
+			.animate({ bottom: 0, opacity: 1 }, 400);
+		}
+	};
+	
+	
+	
+	hideCaptions = function(el){
+		var $this = el;
+		if ($this.find('.caption-bottom').length) {
+			$this.find('.caption-bottom')
+			.stop()
+			.animate({ bottom: -50, opacity: 0 }, 350, function(){
+				$this.find('.caption-bottom').hide(); 
+			});
+		}
+	};
+	
+	
+	
+	hideCaptions( $('#slider3 .panel'));
+	
+	
+	
+}); // end ready
+	
+	
+$.fn.accessibleDropDown = function() {
+	var el = $(this);
+	$("a", el).focus(function() {
+		$(this).parents("li").addClass("hover");
+	}).blur(function() {
+		$(this).parents("li").removeClass("hover");
+	});
+	
+	
+	
+	
+}
+
+</script>
+	
+	
+	
+	
+	
+	
+</head>
+<body>
+<div id="wrapper">
+  <header>
+    <h1>Chaotic Weather</h1>
+    <nav>
+      <label for="show-menu" class="show-menu">Show Menu</label>
+      <input type="checkbox" id="show-menu" role="button">
+      <ul id="menu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="descPage1.html">About</a></li>
+        <li><a href="descPage2.html">Games</a>
+          <ul>
+            <li><a href="#">Crypt Escape</a></li>
+            <li><a href="#">Ninjas</a></li>
+            <li><a href="#">Noteleks</a></li>
+          </ul>
+        </li>
+        <li><a href="descPage3.html">Services</a>
+          <ul>
+            <li><a href="#">Streaming</a></li>
+            <li><a href="#">Games</a></li>
+            <li><a href="#">Lessons</a></li>
+            <li><a href="#">Reviews</a></li>
+          </ul>
+        </li>
+        <li><a href="descPage4.html">Information</a>
+          <ul>
+            <li><a href="#">Sub-Topic 1</a></li>
+            <li><a href="#">Sub-Topic 2</a></li>
+            <li><a href="#">Sub-Topic 3</a></li>
+          </ul>
+        </li>
+        <li><a href="descPage5.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+	
+	
+	
+	
+	
+  <div id="dashboard"> <a href="#"><img src="icons/fb.png" width="70" height="70" title="Follow on Facebook"></a> <a href="#"><img src="icons/g+.png" width ="70" height="70" title="Add to circles in Google+"></a> <a href="#"><img src="icons/ttr.png" width="70" height="70" title="Follow on Twitter"></a> <a href="#"><img src="icons/ln.png" width="70" height="70" title="Add on LinkedIn"></a> <a href="#"><img src="icons/ig.png" width="70" height="70" title="Follow on Instagram"></a> <a href="#"><img src="icons/pnt.png" width="70" height="70" title="Follow on Pintrest"></a> <a href="#"><img src="icons/yt.png" width="70" height="70" title="Subscribe on YouTube"></a> </div>
+	
+	
+  <section>
+    <article>
+      <ul id="slider3">
+        <li>
+          <div class="caption-top">About our Pages</div>
+          <a href="descPage1.html"> <img src="images/pexels-adrien-olichon-2387793.jpg" alt=""></a> </li>
+		  
+		  
+		  
+        <li> 
+			<a href ="descPage2.html"> <img src="images/pexels-mike-esparza-3702458.jpg" alt=""></a>
+          <div class="caption-right">What do We Play? </div>
+        </li>
+		  
+		  
+		  
+        <li> <a href="descPage3.html"> <img src="images/pexels-stas-knop-1298601.jpg" alt=""></a>
+          <div class ="caption-bottom">Services we offer </div>
+        </li>
+		  
+		  
+		  
+		  
+        <li> <a href="descPage4.html"> <img src="images/pexels-suludan-diliyaer-596750.jpg" alt=""></a>
+          <div class="caption-left">Come here for Information</div>
+        </li>
+		  
+		  
+		  
+        <li> <a href="descPage5.html"> <img src="images/pexels-tomasz-filipek-1637436.jpg" alt=""></a>
+          <div class="caption-left">Contact with us on your time</div>
+        </li>
+		  
+		  
+		  
+		  
+      </ul>
+    </article>
+    <p class="spec"></p>
+    <article class="cols">
+      <h2 class="cols-span">Praesent semper feugiat nibh sed</h2>
+      <p class="lead cols-span">Lacus vel facilisis volutpat est velit egestas dui.</p>
+      <p>Tincidunt augue interdum velit euismod in pellentesque massa placerat duis. Eu volutpat odio facilisis mauris sit amet massa vitae. Egestas purus viverra accumsan in nisl nisi. Venenatis cras sed felis eget velit aliquet sagittis id consectetur. Aliquet lectus proin nibh nisl. Fringilla ut morbi tincidunt augue. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Elementum tempus egestas sed sed risus pretium quam. Netus et malesuada fames ac turpis egestas maecenas pharetra. Nulla at volutpat diam ut venenatis tellus in metus. Diam sit amet nisl suscipit adipiscing bibendum est ultricies. Egestas fringilla phasellus faucibus scelerisque eleifend donec. Aliquam sem et tortor consequat id porta. Et magnis dis parturient montes nascetur ridiculus. Diam quam nulla porttitor massa id neque aliquam vestibulum. Viverra justo nec ultrices dui. Imperdiet nulla malesuada pellentesque elit eget gravida cum sociis natoque. Pulvinar neque laoreet suspendisse interdum consectetur. Tincidunt dui ut ornare lectus sit. Placerat orci nulla pellentesque dignissim. </p>
+    </article>
+	  
+	  
+	  
+	  
+	  
+  </section>
+	
+	
+	
+	
+  <aside>
+    <p>The side bar content</p>
+    <p>The side bar content</p>
+    <p>The side bar content</p>
+    <p>The side bar content</p>
+    <p>The side bar content</p>
+    <p>The side bar content</p>
+    <p>The side bar content</p>
+  </aside>
+	
+	
+	
+	
+  <footer>
+    <p>Copyright 2022 All Rights Reserved</p>
+    <div id="minidash"> <a href="#"><img src="images/fb_sm.jpg" width="32" height="32" title="Follow on Facebook"></a> <a href="#"><img src="images/g+_sm.jpg" width="32" height="32" title="Add to Circles on Google+"></a> <a href="#"><img src="images/ttr_sm.jpg" width="32" height="32" title="Follow on Twitter"></a> <a href="#"><img src="images/ln_sm.jpg" width="32" height="32" title="Add on LinkedIn"></a> <a href="#"><img src="images/ig_sm.jpg" width="32" height="32" title="Follow on Instagram"></a> <a href="#"><img src="images/pnt_sm.jpg" width="32" height="32" title="Follow on Pinterest"></a> <a href="#"><img src="images/yt_sm.jpg" width="32" height="32" title="Subscribe to our YouTube Channel"></a> </div>
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+    
+    <!--Photo by suludan diliyaer: https://www.pexels.com/photo/led-game-controller-on-table-596750/
+
+	Photo by Tomasz Filipek: https://www.pexels.com/photo/low-light-photo-of-nes-controller-1637436/
+
+	Photo by Adrien Olichon: https://www.pexels.com/photo/black-sand-dunes-2387793/
+
+	Photo by Stas Knop: https://www.pexels.com/photo/black-microsoft-xbox-game-controller-1298601/
+
+	Photo by Mike Esparza: https://www.pexels.com/photo/black-nintendo-game-boy-on-black-textile-3702458/
+	
+	Photo by Soumil Kumar: https://www.pexels.com/photo/photo-of-person-typing-on-computer-keyboard-735911/
+
+	Photo by Francesco Ungaro: https://www.pexels.com/photo/mosaic-alien-on-wall-1670977/
+
+	Photo by Lucie Liz: https://www.pexels.com/photo/playing-relax-game-controller-3248143/
+
+	Photo by Borja Lopez: https://www.pexels.com/photo/white-sony-dualshock-4-controller-on-black-wood-surface-1346154/
+
+	Photo by Engin Akyurt: https://www.pexels.com/photo/closeup-photography-of-person-holding-black-sony-psp-handheld-console-1435595/
+
+	Photo by cottonbro studio: https://www.pexels.com/photo/couple-hands-love-sitting-4009598/
+
+	Photo by Julia M Cameron: https://www.pexels.com/photo/man-in-yellow-crew-neck-t-shirt-sitting-on-bed-4144175/--> 
+    
+  </footer>
+</div>
+</body>
+</html>
